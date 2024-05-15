@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Cheat Sheet",
+  "version": "1.0",
+  "description": "Save highlight to Cheat Sheet",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js", "popup.js", "content.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.ico",
+      "48": "icon.ico",
+      "128": "icon.ico"
+    }
+  },
+  "icons": {
+    "48": "icon.ico"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
